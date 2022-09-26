@@ -3,7 +3,7 @@ connectToMongo();
 const express = require('express');
 const cors =require("cors");
 const app = express();
-const PORT =process.env.PORT || 5000;
+const port =process.env.PORT || 5000;
 
 app.get("/",(req,res)=>{
   res.render("index");
@@ -23,6 +23,6 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use("/api/auth",require("./routes/auth"));
 app.use("/api/profile",require("./routes/profile"));
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 })
