@@ -5,6 +5,10 @@ const cors =require("cors");
 const app = express();
 const PORT =process.env.PORT || 5000;
 
+app.get("/",(req,res)=>{
+  res.render("index");
+})
+
 //A middleWare to  use req.body
 app.use(express.json());
 app.use(
@@ -12,6 +16,7 @@ app.use(
     origin:"*"
   })
 )
+app.set("view engine","ejs");
 app.use(express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/public'));
 //Avialable Routes
