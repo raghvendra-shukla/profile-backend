@@ -19,7 +19,7 @@ router.get('/fetchallprofile',fetchprofile, async(req, res) => {
 // Route2: fetchingAProfile using get request
 router.get('/fetchaprofile',fetchprofile, async(req, res) => {
   try {
-    const profile=await Profile.find({user:req.user.id});
+    const profile=await Profile.find({user:req.user.id}).limit(1).sort({$natural:-1});
     res.json(profile);
   } catch (error) {
     console.error(error.message);
